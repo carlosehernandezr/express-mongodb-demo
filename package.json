@@ -1,0 +1,22 @@
+{
+  "name": "express-mongodb-demoapp",
+  "version": "1.0.0",
+  "description": "Backend demo app using Node,Express, MongoDB and Mongoose",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "demoapp",
+    "node",
+    "express"
+  ],
+  "author": "Carlos Eduardo Hernández Rojas",
+  "license": "MIT"
+}
