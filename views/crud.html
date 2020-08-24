@@ -1,0 +1,305 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--linking css-->
+    <link rel="stylesheet" href="/styles.css">
+    <!--linking boostrap4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!--linking fontawesome-->
+    <script src="https://kit.fontawesome.com/2285801f71.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
+        <a class="ml-3 navbar-brand" href="/">DemoApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/crud">CRUD</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/apis">APIs Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Source code</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="bg-pageheader">
+        <div class="custom-container p-5 text-light">
+            <h1 class="pageheader-title">CRUD</h1>
+            <p class="pageheader-subtitle"> Example of basic operations: Create, Read, Update and Delete.</p>
+        </div>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Create</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Read</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu2">Update</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu3">Delete</a>
+        </li>
+    </ul>
+    <div class="container-fluid">
+
+        <!-- Tab panes -->
+        <div class="tab-content custom-container">
+            <div class="tab-pane container-fluid active pt-2" id="home">
+                <div class="row ">
+                    <div class="col-md-5">
+                        <div class="pt-2">
+                            <h4 class="text-dark">What does?</h4>
+                            <p>This make a POST call on <span class="code bg-dark">[root-url]/api/create</span> ,
+                                add a
+                                new user on the mongodb and return a person object if is succesfull.
+                                If the data is incorrect or the
+                                user exist, will return an object of this type:
+                                <span class="code bg-dark">{error: "Error message"}</span></p>
+
+                            <h4 class="p-2 text-dark">A person example</h4>
+                            <div class="d-flex bg-dark code">
+                                <span class="code">
+                                    {
+                                    username: "Jhon Doe", <br>
+                                    email: "jhondoe@email.com",<br>
+                                    gender: "masculine", <br>
+                                    color: "blue" }
+                                </span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+
+                        <h4 class="text-dark mt-3 mb-3">Create a person on the database</h4>
+
+                        <form class="form" action="/api/create" method="post">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="username">**Username</label>
+                                        <input class="form-control" id="uname" name="username" placeholder="username"
+                                            type="text" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">**Email</label>
+                                        <input class="form-control" type="email" name="email" placeholder="email"
+                                            id="mail" required="true">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" id="gen" name="gender">
+                                            <option>Masculine</option>
+                                            <option>Feminine</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="color">Favorite color</label>
+                                        <select class="form-control" id="col" name="color" placeholder="Favorite color">
+                                            <option>Blue</option>
+                                            <option>Red</option>
+                                            <option>Yellow</option>
+                                            <option>Orange</option>
+                                            <option>Pink</option>
+                                            <option>Green</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="m-1 mt-4 btn btn-block" type="submit">Create</button>
+                        </form>
+                        <small class="mb-2">Fields with * are required and fields with ** are required and would be
+                            unique. </small>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container-fluid pt-2 fade" id="menu1">
+                <div class="row ">
+                    <div class="col-md-5">
+                        <div class="pt-2">
+                            <h4 class="text-dark">What does?</h4>
+                            <p>This make a GET call on <span class="code bg-dark">[root-url]/api/persons</span>
+                                and return a list of persons that match with the search.
+                                If there is not a match return void.
+                            </p>
+                        </div>
+                        <div class="pt-2">
+                            <h4 class="text-dark">Example</h4>
+                            <p>If you want obtain the list of five persons with gender maculine and favorite color blue,
+                                you can make the next call:
+                                <br><span
+                                    class="code bg-dark">[root-url]/api/persons?gender=masculine&color=blue&limit=5</span><br>
+                                if you introduce an username the call return a unique person, because username
+                                is unique for each person.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h4 class="text-dark mt-3 mb-3">Read on the database</h4>
+                        <form class="form" action="/api/read" method="get">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input class="form-control" id="uname" type="text" name="username"
+                                            placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" id="gender" type="text" name="gender">
+                                            <option>None</option>
+                                            <option>Masculine</option>
+                                            <option>Feminine</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="color">Favorite color</label>
+                                        <select class="form-control" id="color" type="text" name="color">
+                                            <option>None</option>
+                                            <option>Blue</option>
+                                            <option>Red</option>
+                                            <option>Yellow</option>
+                                            <option>Orange</option>
+                                            <option>Pink</option>
+                                            <option>Green</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="limit">Limit to</label>
+                                        <input class="form-control" type="number" id="limit" name="limit"
+                                            placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="m-1 mt-4 btn btn-block" type="submit">Search</button>
+                        </form>
+                        <small class="mb-2"> You need specific at least one or more values.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container-fluid pt-2 fade" id="menu2">
+                <div class="row ">
+                    <div class="col-md-5">
+                        <div class="pt-2">
+                            <h4 class="text-dark">What does?</h4>
+                            <p>This make a POST call on <span class="code bg-dark">[root-url]/api/update</span>
+                                and update changes on the specific person.
+                                If the data is incorrect or the
+                                user does not exist, will return an object of this type:
+                                <br><span class="code bg-dark">{error: "Error message"}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+
+                        <h4 class="text-dark mt-3 mb-3">Update a person</h4>
+
+                        <form class="form" action="/api/update" method="post">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="username">*Username</label>
+                                        <input class="form-control" id="uname" name="username" placeholder="username"
+                                            type="text" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input class="form-control" type="email" name="email" placeholder="email"
+                                            id="mail">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" id="gen" name="gender">
+                                            <option>None</option>
+                                            <option>Masculine</option>
+                                            <option>Feminine</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="color">Favorite color</label>
+                                        <select class="form-control" id="col" name="color" placeholder="Favorite color">
+                                            <option>None</option>
+                                            <option>Blue</option>
+                                            <option>Red</option>
+                                            <option>Yellow</option>
+                                            <option>Orange</option>
+                                            <option>Pink</option>
+                                            <option>Green</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="m-1 mt-4 btn btn-block" type="submit">Update</button>
+                        </form>
+                        <small class="mb-2"> *Required.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container-fluid pt-2 fade" id="menu3">
+                <div class="row ">
+                    <div class="col-md-5">
+                        <div class="pt-2">
+                            <h4 class="text-dark">What does?</h4>
+                            <p>This make a POST call on <span class="code bg-dark">[root-url]/api/delete</span>
+                                and delete the specific person.
+                                If the user does not exist, will return an object of this type:
+                                <br><span class="code bg-dark">{error: "Username not found"}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+
+                        <h4 class="text-dark mt-3 mb-3">Delete a person</h4>
+
+                        <form class="form" action="/api/delete" method="post">
+                            <div class="form-group">
+                                <label for="username">*Username</label>
+                                <input class="form-control" id="uname" name="username" placeholder="username"
+                                    type="text" required="true">
+                            </div>
+                            <button class="m-1 mt-4 btn btn-block" type="submit">Delete</button>
+                        </form>
+                        <small class="mb-2">You need specific the person username</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
