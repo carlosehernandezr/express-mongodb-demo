@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 const cors = require('cors')
 const app = express()
-const port = process.env.PORT
 const mongoose = require("mongoose")
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -165,4 +164,4 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(3000, () => console.log(`Demo app listening on port ${port}!`)); 
+app.listen(process.env.PORT || 3000, () => console.log(`Demo app listening on port ${process.env.PORT}!`)); 
