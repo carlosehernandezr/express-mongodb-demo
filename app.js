@@ -19,8 +19,7 @@ mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology
 });
 
 //site routes
-app.get('/', (req, res) => res.sendFile(__dirname + "/views/index.html"))
-app.get('/crud', (req, res) => res.sendFile(__dirname + "/views/crud.html"))
+app.get('', (req, res) => res.sendFile(__dirname + "/views/index.html"))
 app.get('/apis', (req, res) => res.sendFile(__dirname + "/views/apis.html"))
 app.use(express.static(__dirname + "/public"))
 
